@@ -22,23 +22,56 @@
         }
     </style>
     <!-- primary colors -->
-    <script>
+    <!-- <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         clifford: '#da373d',
-                        'primary-color': '#FFF9F4',
+                        'primary-color': '#797DFC',
                     }
                 }
             }
         }
-    </script>
+    </script> -->
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
-    <header></header>
-    <main></main>
+<body class="mulish-font">
+    <header class="md:mx-32 my-12">
+        <nav>
+            <div class="flex justify-between items-center">
+                <div class="flex">
+                    <a class="text-xl text-[#12132D] font-bold">Retro Forum</a>
+                </div>
+
+                <div class="flex">
+                    <ul class="menu menu-horizontal px-1 flex justify-between items-center md:gap-2 gap-0">
+                        <div class="tooltip" data-tip="house">
+                            <li><a href=""><i class="fa-solid fa-house"></i></a></li>
+                        </div>
+                        <div class="tooltip" data-tip="Edit">
+                            <li><a><i class="fa-solid fa-pencil"></i></a></li>
+                        </div>
+                        <div class="tooltip" data-tip="Add">
+                            <li><i class="fa-solid fa-user-plus"></i></li>
+                        </div>
+                        <div class="tooltip" data-tip="flag">
+                            <li><a><i class="fa-regular fa-flag"></i></a></li>
+                        </div>
+                        <a class="btn rounded-3xl bg-[#797DFC]">Sign Up</a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+
+    </main>
     <footer></footer>
 
     <!-- javascript files -->
