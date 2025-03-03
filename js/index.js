@@ -2,9 +2,7 @@ const loadPosts = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
     const data = await res.json();
     const posts = data.posts;
-    // console.log(posts);
     posts.map(post => {
-        // console.log(post);
         const postsContainer = document.getElementById('posts-container');
         const postDiv = document.createElement('div');
         const isActive = post.isActive;
@@ -80,8 +78,6 @@ const readBtn = (isClicked, title, view) => {
 const latestPosts = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
     const posts = await res.json();
-    // console.log(posts);
-
     posts.map(post => {
         console.log(post);
         const latestPosts = document.getElementById('latest-container');
@@ -105,7 +101,7 @@ const latestPosts = async () => {
                         </div>
                         <div>
                         <h5>${post?.author?.name}</h5>
-                        <p>${post?.author?.designation? post?.author?.designation : 'Unknown'}</p>
+                        <p>${post?.author?.designation ? post?.author?.designation : 'Unknown'}</p>
                         </div>
                     </div>
                 </div>
@@ -114,8 +110,63 @@ const latestPosts = async () => {
 
         latestPosts.appendChild(div);
     });
-
 }
+
+const handleSearch = async () => {
+    toggleLoadingSpinner(true);
+    const searchText = document.getElementById('search-by-category').value;
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`);
+    const data = await res.json();
+    const mainData = data.posts;
+    const postCard = document.getElementById('posts-container');
+    postCard.innerText = '';
+    mainData.forEach((item) => {
+        console.log(item);
+        const div = document.createElement('div');
+        div.innerHTML = `<div class="my-5 border-[#797DFC]">
+      <div class="hero bg-[#797DFC30] rounded-xl p3">
+        <div class="hero-content flex items-start ">
+          <div class="avatar online">
+              <div class="w-24 rounded-full">
+                  <img src="${item.image}" />
+              </div>
+            </div>
+        <div>
+              <span class="text-xl mx-3">#<span>${item.category}</span></span>
+              <span class="text-xl ">Author :<span> ${item.author?.name}</span></span>
+              <p class="text-xl font-bold py-6">${item.title}</p>
+              <p class="text-xl py-6">${item.description}</p>
+              <hr class="my-5">
+              <div class="flex justify-between items-center">
+                  <div class="gap-3">
+                      <i class="fa-regular fa-message"></i></i> <span class="mx-3">${item.comment_count}</span>
+                      <i class="fa-solid fa-eye"></i> <span class="mx-3">${item.view_count}</span>
+                      <i class="fa-regular fa-clock"></i> <span class="mx-3">${item.posted_time}</span>
+                  </div>
+                  <div class="text-right">
+                  <button id="postBtn" onclick="readBtn(true,${item.id})" class="btn bg-[#10B981] rounded-full "><i class="fa-regular fa-envelope-open"></i></button>
+              </div>
+              </div>
+              </div>
+            </div>
+        </div>
+  </div>`;
+        postCard.appendChild(div);
+    });
+    setTimeout(() => {
+        toggleLoadingSpinner(false);
+    }, 2000);
+};
+
+const toggleLoadingSpinner = (isLoading) => {
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if (isLoading) {
+        loadingSpinner.classList.remove('hidden');
+    }
+    else {
+        loadingSpinner.classList.add('hidden');
+    };
+};
 
 loadPosts();
 latestPosts();
