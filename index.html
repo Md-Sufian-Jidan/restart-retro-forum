@@ -21,19 +21,6 @@
             font-style: normal;
         }
     </style>
-    <!-- primary colors -->
-    <!-- <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                        'primary-color': '#797DFC',
-                    }
-                }
-            }
-        }
-    </script> -->
     <!-- font awesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -41,7 +28,7 @@
 </head>
 
 <body class="mulish-font">
-    <header class="md:mx-32 my-12">
+    <header class="md:mx-32 my-12 mx-3">
         <nav>
             <div class="flex justify-between items-center">
                 <div class="flex">
@@ -71,9 +58,10 @@
     <main class="md:mx-32 my-12">
         <!-- banner section -->
         <section
-            class="my-5 md:p-24 p-10 h-[500px] bg-[url('../../images/bgbanner.png')] bg-no-repeat bg-bottom rounded-[32px] bg-[#12132D] flex justify-between items-center">
+            class="my-5 mx-3 md:p-24 p-10 h-full bg-[url('../../images/bgbanner.png')] bg-no-repeat bg-bottom rounded-[32px] bg-[#12132D] flex flex-col lg:flex-row justify-between items-center gap-5">
             <div class="space-y-5">
-                <h2 class="md:text-6xl text-2xl font-black text-white">Welcome to the <span class="text-[#797DFC]">ReTro</span>
+                <h2 class="md:text-6xl text-2xl font-black text-white">Welcome to the <span
+                        class="text-[#797DFC]">ReTro</span>
                     Forum</h2>
                 <p class="text-xl font-medium text-[#FFFFFFCC]">Share your favorite opinion and win and wp forum coffee
                     mug!</p>
@@ -90,6 +78,30 @@
             </div>
         </section>
 
+        <section class="my-10 mx-3">
+            <div class="text-center max-w-2xl mx-auto">
+                <h3 class="text-4xl font-black text-[#12132D]">Let’s Discuss</h3>
+                <p class="text-lg text-[#12132D99]">Yes, you can run unit tests and view the results directly within the
+                    app. The integrated testing features allow for a streamlined .</p>
+            </div>
+            <div class="flex flex-col lg:flex-row justify-between gap-5">
+                <!-- posts section start -->
+            <div class="flex-1" id="posts-container">
+
+            </div>
+            <div class="bg-[#12132D0D] p-10 lg:w-1/2 mt-12 rounded-lg border-[#797DFC] my-5">
+                <div class="flex justify-between ">
+                    <h2>Title</h2>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-double text-[#3DCE09]"></i>
+                        <p>Mark as read (<span id="mark-count">0</span>)</p>
+                    </div>
+                </div>
+                <div id="total-read-post">
+                </div>
+            </div>
+            </div>
+        </section>
     </main>
     <footer class="bg-[#30325E1A] md:py-24 md:px-32 p-10 text-center">
         <div class="space-y-5">
