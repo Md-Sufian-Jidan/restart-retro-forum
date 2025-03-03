@@ -81,40 +81,53 @@
         <!-- let's discuss section -->
         <section class="my-10 mx-3">
             <div class="text-center max-w-2xl mx-auto">
-                <h3 class="text-4xl font-black text-[#12132D]">Let’s Discuss</h3>
+                <h3 class="text-4xl font-black text-[#12132D]">Let&#8217;s Discuss</h3>
                 <p class="text-lg text-[#12132D99]">Yes, you can run unit tests and view the results directly within the
                     app. The integrated testing features allow for a streamlined .</p>
             </div>
             <div class="flex flex-col lg:flex-row justify-between gap-5">
                 <!-- posts section start -->
-            <div class="flex-1" id="posts-container">
+                <div class="flex-1" id="posts-container">
 
-            </div>
-            <div class="bg-[#12132D0D] p-10 lg:w-1/2 mt-12 rounded-lg border-[#797DFC] my-5">
-                <div class="flex justify-between ">
-                    <h2>Title</h2>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-check-double text-[#3DCE09]"></i>
-                        <p>Mark as read (<span id="mark-count">0</span>)</p>
+                </div>
+                <div class="bg-[#12132D0D] p-10 lg:w-1/2 mt-12 rounded-lg border-[#797DFC] my-5">
+                    <div class="flex justify-between ">
+                        <h2>Title</h2>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check-double text-[#3DCE09]"></i>
+                            <p>Mark as read (<span id="mark-count">0</span>)</p>
+                        </div>
+                    </div>
+                    <div id="total-read-post">
                     </div>
                 </div>
-                <div id="total-read-post">
-                </div>
-            </div>
             </div>
         </section>
         <!-- join our forum -->
-         <section class="p-24 bg-[#12132D] flex justify-between items-center gap-5 rounded-[32px]">
+        <section class="mx-3 p-24 bg-[#12132D] flex justify-between items-center gap-5 rounded-[32px]">
             <div class="text-white space-y-5">
                 <h3 class="text-4xl font-black">Join Our Forum</h3>
-                <p class="text-lg text-[#FFFFFFCC] font-extralight">Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit tests and view the results directly within the app. </p>
+                <p class="text-lg text-[#FFFFFFCC] font-extralight">Share your favorite opinion and win and wp forum
+                    coffee mug! Yes, you can run unit tests and view the results directly within the app. </p>
                 <button class="btn w-56 bg-[#797DFC] rounded-full text-white border-none">Registered Now</button>
             </div>
             <div>
                 <img src="/images/joinforum.png" alt="">
             </div>
 
-         </section>
+        </section>
+        <!--  -->
+        <section class="mx-3">
+            <div class="text-center max-w-2xl mx-auto my-5">
+                <h3 class="text-4xl font-black text-[#12132D]">Latest Posts</h3>
+                <p class="text-lg text-[#12132D99]">Yes, you can run unit tests and view the results directly within the
+                    app. The integrated testing features allow for a streamlined .</p>
+            </div>
+            <!-- latest post div -->
+            <div id="latest-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            </div>
+        </section>
     </main>
     <footer class="bg-[#30325E1A] md:py-24 md:px-32 p-10 text-center">
         <div class="space-y-5">

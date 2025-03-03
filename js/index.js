@@ -1,9 +1,9 @@
-async function loadPosts() {
+const loadPosts = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
     const data = await res.json();
     const posts = data.posts;
     // console.log(posts);
-    for (const post of posts) {
+    posts.map(post => {
         // console.log(post);
         const postsContainer = document.getElementById('posts-container');
         const postDiv = document.createElement('div');
@@ -51,10 +51,9 @@ async function loadPosts() {
                     </div>
 
                 </div>
-                <!-- mark as read div -->
                 `
         postsContainer.appendChild(postDiv);
-    }
+    })
 }
 
 let count = 1;
@@ -78,4 +77,45 @@ const readBtn = (isClicked, title, view) => {
     };
 }
 
-loadPosts()
+const latestPosts = async () => {
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+    const posts = await res.json();
+    // console.log(posts);
+
+    posts.map(post => {
+        console.log(post);
+        const latestPosts = document.getElementById('latest-container');
+
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <div class="card bg-base-100 shadow-sm">
+                <figure class="px-10 pt-10">
+                    <img src="${post?.cover_image}"
+                    alt="Shoes" class="rounded-xl" />
+                </figure>
+                <div class="card-body">
+                <p><i class="fa-solid fa-calendar mr-3"></i> ${post?.author?.posted_date ? post?.author?.posted_date : 'No Published Date'}</p>
+                    <h2 class="card-title">${post?.title}</h2>
+                    <p>${post?.description}</p>
+                    <div class="card-actions">
+                        <div class="avatar">
+                            <div class="w-11 rounded-full">
+                                <img  src="${post?.profile_image}" />
+                            </div>
+                        </div>
+                        <div>
+                        <h5>${post?.author?.name}</h5>
+                        <p>${post?.author?.designation? post?.author?.designation : 'Unknown'}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `
+
+        latestPosts.appendChild(div);
+    });
+
+}
+
+loadPosts();
+latestPosts();
